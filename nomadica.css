@@ -1,0 +1,175 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+h3 {
+    font-size: 20px;
+    color: #0073e6;
+}
+
+/* Header Styling */
+header {
+    background-color: #0073e6;
+    color: white;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container img {
+    height: 200px; /* Adjust logo size */
+    width: auto;
+}
+
+#search {
+    padding: 10px 15px;
+    width: 40%;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#search:focus {
+    outline: none;
+    width: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* User Location Box */
+#user-location {
+    background: white;
+    color: #333;
+    padding: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+}
+
+/* Destination Cards Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.destination {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.destination:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.destination img {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+/* Button Styling */
+button {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+/* Distance Text */
+.distance {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design for Various Screen Sizes */
+@media screen and (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Two items per row for tablets */
+    }
+
+    #search {
+        width: 60%; /* Make search bar larger on tablets */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr); /* Single column for mobile */
+    }
+
+    #search {
+        width: 80%; /* Make the search input take more space on small screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #search {
+        width: 100%; /* Search input full width on very small screens */
+    }
+}

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Destinations</title>
+
+    <!-- Inline CSS -->
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Styling */
+        header {
+            background: #0073e6;
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            flex-shrink: 0; /* Prevent the logo from shrinking */
+        }
+
+        #logo {
+            height: 50px; /* Adjust the logo size */
+            width: auto;
+        }
+
+        #search {
+            padding: 10px;
+            width: 50%;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #search:focus {
+            width: 60%;
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* User Location Box */
+        #user-location {
+            background: white;
+            color: #333;
+            padding: 10px;
+            margin-top: 10px;
+            display: inline-block;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Destination Cards */
+        .grid-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .destination {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            animation: slideUp 0.5s ease-in-out;
+        }
+
+        .destination:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .destination img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Buttons */
+        button {
+            background: #0073e6;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: #005bb5;
+        }
+
+        /* Distance Text */
+        .distance {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: #0073e6;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="nom.jpg" alt="Logo" id="logo">
+        </div>
+        <input type="text" id="search" placeholder="Search Destinations">
+    </header>
+
+    <section id="user-location">
+        <!-- This will show user's location -->
+        <p>Loading your location...</p>
+    </section>
+
+    <section id="destinations" class="grid-container">
+        <div class="destination" data-lat="9.9375" data-lon="76.3515">
+            <img src="marine.jpg" alt="Marine Drive, Kochi">
+            <h3>Marine Drive</h3>
+            <p>Beautiful waterfront walk in Kochi.</p>
+            <p class="distance">Loading distance...</p>
+            <button onclick="viewDetails('Marine Drive')">View Details</button>
+        </div>
+        <div class="destination" data-lat="9.9545" data-lon="76.3600">
+            <img src="kadamakudy.jpg" alt="Kadamakudy, Kochi">
+            <h3>Kadamakudy</h3>
+            <p>A peaceful village in Kochi.</p>
+            <p class="distance">Loading distance...</p>
+            <button onclick="viewDetails('Kadamakudy')">View Details</button>
+        </div>
+        <div class="destination" data-lat="9.9452" data-lon="76.3573">
+            <img src="hill.jpg" alt="Hill Palace, Thrippunithura">
+            <h3>Hill Palace</h3>
+            <p>The royal heritage museum in Thrippunithura.</p>
+            <p class="distance">Loading distance...</p>
+            <button onclick="viewDetails('Hill Palace')">View Details</button>
+        </div>
+
+        <!-- Additional Destinations for the Second Row -->
+        <div class="destination" data-lat="9.9714" data-lon="76.2794">
+            <img src="subhash-park.jpg" alt="Subash Park, Kochi">
+            <h3>Subash Park</h3>
+            <p>Peaceful park in the heart of Kochi.</p>
+            <p class="distance">Loading distance...</p>
+            <button onclick="viewDetails('Subash Park')">View Details</button>
+        </div>
+        <div class="destination" data-lat="9.931233" data-lon="76.267303">
+            <img src="won.jpg" alt="Wonderla, Kochi">
+            <h3>Wonderla</h3>
+            <p>Amusement park and water theme park.</p>
+            <p class="distance">Loading distance...</p>
+            <button onclick="viewDetails('Wonderla')">View Details</button>
+        </div>
+        <div class="destination" data-lat="9.936999" data-lon="76.544924">
+            <img src="koch.jpeg" alt="Kochareekkal Caves, Piravam">
+            <h3>Kochareekkal Caves</h3>
+            <p>Ancient caves located in Piravam.</p>
+            <p class="distance">Loading distance...</p>
+            <button onclick="viewDetails('Kochareekkal Caves')">View Details</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Explore Your Favorite Places. All rights reserved.</p>
+    </footer>
+
+    <!-- Inline JavaScript -->
+    <script>
+        // Function to calculate distance using Haversine Formula
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371; // Earth's radius in kilometers
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = 
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            return R * c; // Distance in kilometers
+        }
+
+        // Function to get user's current location
+        function getUserLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const userLat = position.coords.latitude;
+                        const userLon = position.coords.longitude;
+
+                        // Fetch user's location name from OpenStreetMap API
+                        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${userLat}&lon=${userLon}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                // Update location display
+                                document.getElementById("user-location").textContent = `📍 ${data.display_name}`;
+                            });
+
+                        // Get all destination elements
+                        let destinations = document.querySelectorAll(".destination");
+                        let distances = [];
+
+                        destinations.forEach(dest => {
+                            const destLat = parseFloat(dest.dataset.lat);
+                            const destLon = parseFloat(dest.dataset.lon);
+                            const distance = calculateDistance(userLat, userLon, destLat, destLon);
+                            dest.querySelector(".distance").textContent = `${distance.toFixed(2)} km away`;
+                            distances.push({ element: dest, distance: distance });
+                        });
+
+                        // Sort destinations based on distance (ascending order)
+                        distances.sort((a, b) => a.distance - b.distance);
+
+                        // Update the DOM with sorted destinations
+                        const container = document.getElementById("destinations");
+                        container.innerHTML = ""; // Clear the current destinations
+                        distances.forEach(d => container.appendChild(d.element));
+                    },
+                    (error) => {
+                        console.log("Error getting location: " + error.message);
+                        alert("Unable to retrieve your location.");
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Function to display place details when the "View Details" button is clicked
+        function viewDetails(place) {
+            alert(`More details about ${place} will be added soon!`);
+        }
+
+        // Function to search destinations by name
+        document.getElementById("search").addEventListener("keyup", function() {
+            const filter = this.value.toLowerCase(); // Get search query
+            const destinations = document.querySelectorAll(".destination"); // Get all destination cards
+
+            destinations.forEach(dest => {
+                // Get the name of the destination from <h3> tag
+                const destName = dest.querySelector("h3").textContent.toLowerCase();
+                
+                // Show or hide destination based on the search input
+                if (destName.includes(filter)) {
+                    dest.style.display = "block"; // Show if it matches
+                } else {
+                    dest.style.display = "none"; // Hide if it doesn't match
+                }
+            });
+        });
+
+        // Initialize on window load
+        window.onload = () => {
+            getUserLocation(); // Fetch user's location and update distances
+        };
+    </script>
+</body>
+</html>
