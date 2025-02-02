@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #0073e6;
+            color: white;
+            padding: 20px;
+        }
+        .content {
+            padding: 20px;
+        }
+        img {
+            width: 80%;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        button {
+            background: #0073e6;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        button:hover {
+            background: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="place-name">Place Name</h1>
+    </header>
+    <div class="content">
+        <img id="place-image" src="" alt="Place Image">
+        <p id="place-description">Place Description</p>
+        <button onclick="goBack()">Go Back</button>
+    </div>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                name: params.get('name'),
+                description: params.get('description'),
+                image: params.get('image')
+            };
+        }
+
+        function displayDetails() {
+            const { name, description, image } = getQueryParams();
+            document.getElementById('place-name').textContent = name;
+            document.getElementById('place-description').textContent = description;
+            document.getElementById('place-image').src = image;
+            document.getElementById('place-image').alt = name;
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        window.onload = displayDetails;
+    </script>
+</body>
+</html>
