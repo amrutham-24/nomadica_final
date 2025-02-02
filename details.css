@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #0073e6;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container {
+    flex-shrink: 0;
+}
+
+.logo-container img {
+    height: 50px; /* Adjust the size of the logo */
+    width: auto;
+}
+
+#place-name {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 24px;
+}
+
+.content {
+    padding: 20px;
+}
+
+img {
+    width: 80%;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+button {
+    background: #0073e6;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #005bb5;
+}

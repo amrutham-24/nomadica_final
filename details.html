@@ -12,19 +12,41 @@
             text-align: center;
             background-color: #f4f4f4;
         }
+
         header {
             background: #0073e6;
             color: white;
             padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
+
+        .logo-container {
+            flex-shrink: 0;
+        }
+
+        .logo-container img {
+            height: 50px; /* Adjust the size of the logo */
+            width: auto;
+        }
+
+        #place-name {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 24px;
+        }
+
         .content {
             padding: 20px;
         }
+
         img {
             width: 80%;
             border-radius: 10px;
             margin: 20px 0;
         }
+
         button {
             background: #0073e6;
             color: white;
@@ -35,6 +57,7 @@
             margin-top: 10px;
             transition: all 0.3s ease-in-out;
         }
+
         button:hover {
             background: #005bb5;
         }
@@ -42,13 +65,18 @@
 </head>
 <body>
     <header>
+        <div class="logo-container">
+            <img src="nom.jpg" alt="Logo">
+        </div>
         <h1 id="place-name">Place Name</h1>
     </header>
+
     <div class="content">
         <img id="place-image" src="" alt="Place Image">
         <p id="place-description">Place Description</p>
         <button onclick="goBack()">Go Back</button>
     </div>
+
     <script>
         function getQueryParams() {
             const params = new URLSearchParams(window.location.search);
